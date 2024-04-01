@@ -1,0 +1,18 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/joe19/Desktop/MultiplayerNetTest/MultiplayerNetTest/Content/Source/Core/FrameworkGameState.uasset",
+				"C:/Users/joe19/Desktop/MultiplayerNetTest/MultiplayerNetTest/Content/Source/Core/FrameworkPlayerState.uasset",
+				"C:/Users/joe19/Desktop/MultiplayerNetTest/MultiplayerNetTest/Content/Source/Core/FrameworkNetGameMode.uasset",
+				"C:/Users/joe19/Desktop/MultiplayerNetTest/MultiplayerNetTest/Content/Source/Core/BP_FrameworkGameState.uasset",
+				"C:/Users/joe19/Desktop/MultiplayerNetTest/MultiplayerNetTest/Content/Source/Core/BP_FrameworkNetGameMode.uasset",
+				"C:/Users/joe19/Desktop/MultiplayerNetTest/MultiplayerNetTest/Content/Source/Core/BP_FrameworkPlayerState.uasset",
+				"C:/Users/joe19/Desktop/MultiplayerNetTest/MultiplayerNetTest/Content/Source/Client/MyClient.uasset"
+			]
+		}
+	]
+}
