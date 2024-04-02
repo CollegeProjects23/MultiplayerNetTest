@@ -10,6 +10,8 @@
 
 class APlayerController;
 class AClient;
+class ANavigationObjectBase;
+class AMultiplayerNetTestCharacter;
 
 
 
@@ -59,6 +61,8 @@ class MULTIPLAYERNETTEST_API ANetGameMode : public AGameMode
 
 protected:
 
+	ANetGameMode();
+
 	UFUNCTION(BlueprintCallable)
 	void OnPlayerLogin(const APlayerController* PlayerLogingIn);
 	
@@ -68,7 +72,17 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void OnPlayerRemoving(const APlayerController* LeavingPlayer);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	bool IsThisPlayerAccounted(APlayerController* controller);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	TArray<FClientHandle> GetPlayers();
+
+	UFUNCTION(BlueprintCallable)
+	FClientHandle GetPlayerHandle(const APlayerController* Player);
 public:
+
 
 	UPROPERTY(VisibleAnywhere, Category = Network)
 	TArray<FClientHandle> ActivePlayers;
@@ -78,4 +92,10 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FLeaving PlayerLeavingEvent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Server Info")
+	TSoftObjectPtr<AActor> SpawnLocationReference;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Server Info")
+	TSubclassOf<AMultiplayerNetTestCharacter> CharacterRef;
 };

@@ -6,6 +6,9 @@
 #include "GameFramework/PlayerController.h"
 #include "Client.generated.h"
 
+
+class ANetGameMode;
+
 /**
  * 
  */
@@ -26,7 +29,5 @@ public:
 	int32 Id = 0;
 
 protected:
-
-
 
 };

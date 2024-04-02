@@ -5,6 +5,11 @@
 
 #include "MyGameState.h"
 #include "Client\Client.h"
+#include "MultiplayerNetTest\MultiplayerNetTestCharacter.h"
+
+ANetGameMode::ANetGameMode()
+{
+}
 
 void ANetGameMode::OnPlayerLogin(const APlayerController* PlayerLogingIn)
 {
@@ -58,5 +63,49 @@ void ANetGameMode::OnPlayerRemoving(const APlayerController* LeavingPlayer)
 			break;
 		}
 	}
+}
+
+
+bool ANetGameMode::IsThisPlayerAccounted(APlayerController* controller)
+{
+	bool Logged = false;
+
+
+	if (AClient* currentClient = (AClient*)controller) {
+		for (int i = 0; i < ActivePlayers.Num(); i++) {
+			if (ActivePlayers[i].Id != currentClient->Id) { continue; }
+
+			Logged = true;
+
+			break;
+		}
+	}
+
+	return Logged;
+}
+
+TArray<FClientHandle> ANetGameMode::GetPlayers()
+{
+	return this->ActivePlayers;
+}
+
+FClientHandle ANetGameMode::GetPlayerHandle(const APlayerController* Player)
+{
+	FClientHandle Handle;
+
+
+	if (AClient* client = (AClient*)Player) {
+
+		for (int i = 0; i < ActivePlayers.Num(); i++) {
+			if (ActivePlayers[i].Id != client->Id) { continue; }
+
+			Handle = ActivePlayers[i];
+
+			break;
+		}
+
+	}
+
+	return Handle;
 }
 

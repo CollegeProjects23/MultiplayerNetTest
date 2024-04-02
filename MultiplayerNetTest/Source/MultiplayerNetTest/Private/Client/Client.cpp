@@ -3,6 +3,9 @@
 
 #include "Client/Client.h"
 
+#include "Kismet\GameplayStatics.h"
+#include "NetGameMode.h"
+
 void AClient::SignalIfLoggedIn()
 {
 	if (!GEngine) { return; }
@@ -14,3 +17,4 @@ void AClient::SignalIfSuccessfulLevelTransfer()
 	if (!GEngine) { return; }
 	GEngine->AddOnScreenDebugMessage(1, 10, FColor::Green, FString(TEXT("Successful Transition")));
 }
+
